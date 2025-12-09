@@ -1,7 +1,8 @@
 package io;
 /*
-http://mekeyace.kbsn.or.kr/images.zip
 
+
+http://mekeyace.kbsn.or.kr/images.zip
 응용문제2
 해당 경로에 images라는 디렉토리가 있습니다.
 해당 디렉토리에 있는 이미지를 활용하여 다음과 같이 c:\travel에
