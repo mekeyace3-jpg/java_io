@@ -47,32 +47,28 @@ public class ex2 {
 				this.br = new BufferedReader(this.isr);
 				String data = "";
 				int ff = 0;
+				
 				while((data=this.br.readLine()) != null) {
-					String ck[] = data.split(",");
+				String ck[] = data.split(",");	//문자열 , 기준으로 원시배열 생성 하여 switch 반영
 					switch(ck[1]) {
 						case "SKT":
-							ff = 0;
-							System.out.println(data);
+							ff = 0;	//filenm 해당 원시배열 변수에 맞는 배열 노드번호를 적용하기 위함
 						break;
 						case "KT":
 							ff = 1;
-							
 						break;
 						case "LGT":
 							ff = 2;
-							
 						break;
-						
 						default:	//etc (알뜰폰)
 							ff = 3;
-							
 						break;
 					}
 					
 					this.os = new FileOutputStream(this.save_data + filenm[ff],true);
 					this.osw = new OutputStreamWriter(this.os,Charset.forName("EUC-KR"));
 					this.bw = new BufferedWriter(this.osw);
-					this.bw.write("");
+					this.bw.write(data);
 					this.bw.newLine();
 					this.bw.flush();
 				}
