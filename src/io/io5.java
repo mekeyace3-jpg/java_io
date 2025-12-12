@@ -1,7 +1,10 @@
 package io;
 
+import java.io.File;
 import java.io.FileReader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -28,15 +31,30 @@ public class io5 {
 
 class io5_box{
 	String url = "D:\\java_io\\interior_data.txt";
+	ArrayList<String[]> alldata = null;
+	//ArrayList<String> al = null;
+	//ArrayList<ArrayList<String>> alldata = new ArrayList<ArrayList<String>>();
 	
 	public void abc() throws Exception {
-		FileReader fr = new FileReader(this.url,Charset.forName("EUCKR"));
-		Scanner sc = new Scanner(fr);
-		while(sc.hasNext()) {
-			System.out.println(sc.nextLine());
+		//File f = new File(this.url);
+		try {
+			FileReader fr = new FileReader(this.url,Charset.forName("EUCKR"));
+			Scanner sc = new Scanner(fr);
+			this.alldata = new ArrayList<String[]>();
+			while(sc.hasNext()) {
+				String word[] = sc.nextLine().split(",");
+				this.alldata.add(word);
+				//this.al = new ArrayList<String>(Arrays.asList(word));
+				//this.alldata.add(this.al);
+				//this.alldata.add(word);
+			}
+			sc.close();
+			fr.close();
+			System.out.println(Arrays.deepToString(this.alldata.toArray()));
+			//System.out.println(this.alldata.get(1).get(1));
+		}catch (Exception e) {
+			e.getMessage();
 		}
-		sc.close();
-		fr.close();
 	}
 	
 }
